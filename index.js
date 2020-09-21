@@ -84,7 +84,7 @@ fs.readdir("./commands/", (_err, files) => {
 });
 client.on("message", async message =>{
   const { Database } = require("quickmongo");
-  const db = new Database("mongodb://ukeuc9uvjxfjhkonvmis:yYzBZ43o9CmtRDuemg9h@bgfweiijeayygum-mongodb.services.clever-cloud.com:27017/bgfweiijeayygum");
+  const db = new Database(process.env.MONGO_URI);
 if(message.author.bot) return;
 var prefix = await db.fetch(`newprefix_${message.guild.id}`)
 if(prefix === null) prefix = "."
@@ -92,7 +92,7 @@ if(prefix === null) prefix = "."
 })
 client.on('message', async (jamel) => {
 if(jamel.author.bot) return;
-  const { Database } = require("quickmongo");const db = new Database("mongodb://ukeuc9uvjxfjhkonvmis:yYzBZ43o9CmtRDuemg9h@bgfweiijeayygum-mongodb.services.clever-cloud.com:27017/bgfweiijeayygum");
+  const { Database } = require("quickmongo");const db = new Database(process.env.MONGO_URI);
   
     var prefix = await db.fetch(`newprefix_${jamel.guild.id}`)
     if (prefix == null) prefix = '.'
@@ -139,13 +139,13 @@ Bot Channels :  \`${client.channels.cache.size}\` `)
 })
 client.on("message",async message=>{
   const { Database } = require("quickmongo");
-  const db = new Database("mongodb://ukeuc9uvjxfjhkonvmis:yYzBZ43o9CmtRDuemg9h@bgfweiijeayygum-mongodb.services.clever-cloud.com:27017/bgfweiijeayygum");
+  const db = new Database(process.env.MONGO_URI);
   
  await db.add(`ggff_${message.author.id}`, 1)
   });
   client.on("message", async message => {
     if(message.author.bot) return;
-  const { Database } = require("quickmongo");const db = new Database("mongodb://ukeuc9uvjxfjhkonvmis:yYzBZ43o9CmtRDuemg9h@bgfweiijeayygum-mongodb.services.clever-cloud.com:27017/bgfweiijeayygum");
+  const { Database } = require("quickmongo");const db = new Database(process.env.MONGO_URI);
     
     var prefix = await db.fetch(`newprefix_${message.guild.id}`)  
     if (prefix == null) prefix = '.'
